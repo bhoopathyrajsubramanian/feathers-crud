@@ -8,10 +8,12 @@ export const todoSchema = {
   $id: 'Todo',
   type: 'object',
   additionalProperties: false,
-  required: ['_id', 'text'],
+  required: ['_id', 'todo','isCompleted','isImportant'],
   properties: {
     _id: ObjectIdSchema(),
-    text: { type: 'string' }
+    todo: { type: 'string' },
+    isCompleted:{type:'boolean'},
+    isImportant:{type:'boolean'},
   }
 }
 export const todoValidator = getValidator(todoSchema, dataValidator)
@@ -24,7 +26,7 @@ export const todoDataSchema = {
   $id: 'TodoData',
   type: 'object',
   additionalProperties: false,
-  required: ['text'],
+  required: ['todo'],
   properties: {
     ...todoSchema.properties
   }

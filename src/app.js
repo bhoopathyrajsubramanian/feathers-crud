@@ -18,7 +18,7 @@ import { logError } from './hooks/log-error.js'
 import { mongodb } from './mongodb.js'
 import { services } from './services/index.js'
 import { channels } from './channels.js'
-import { JWTStrategy } from '@feathersjs/authentication/lib/jwt.js'
+
 
 const app = express(feathers())
 
@@ -39,7 +39,7 @@ app.configure(
     }
   })
 )
-app.configure(jwt())
+
 app.configure(mongodb)
 app.configure(services)
 app.configure(channels)

@@ -33,7 +33,6 @@ export const todo = (app) => {
   app.service(todoPath).hooks({
     around: {
       all: [
-        authenticate('jwt'),
         schemaHooks.resolveExternal(todoExternalResolver),
         schemaHooks.resolveResult(todoResolver)
       ]
